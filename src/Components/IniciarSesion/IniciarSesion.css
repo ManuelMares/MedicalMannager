@@ -1,0 +1,28 @@
+
+.LogIn_Contenedor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    height: 80vh;
+    width: 50%;
+    padding:2rem;
+
+    border-radius: 5px;
+    background-color: #666666;
+}
+
+.LogIn_icono{
+    font-size: 3rem;
+    color: white;
+    padding-right: 1rem;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.LogIn_SecondaryText{
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 0;
+}

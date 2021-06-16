@@ -1,0 +1,110 @@
+*{
+  padding: 0px;
+  margin:0;
+  box-sizing: border-box;
+}
+
+:root{
+  --gris-primario: #ebe7e7;
+  --gris-terciario: #babdbd;
+  --gris-secundario: #747474;
+  --gris-secundario: #313131;
+
+  --azul-primario: #6AA6EA;
+  --azul-secundario: #33b5e5;
+  --azul-terciario: #0099cc;
+  --azul-cuarto: #0d7192;
+
+  --rojo-primario: #eb4848;
+  --rojo-secundario: #e22828;
+  --rojo-terciario: #ca0000;
+  --rojo-cuarto: #aa0909;
+  
+  --verde-primario: #48eb63;
+  --verde-secundario: #0fc54c;
+  --verde-terciario: #0da547;
+  --verde-cuarto: #0d7e29;
+
+  
+  --oscuro-transparente: #000000b2;
+  --sombra-caja: 0px 10px 20px -5px var(--oscuro-transparente);
+
+
+  --sombra-boton: 0px 2px 5px 0px var(--oscuro-transparente);
+}
+
+.texto_blanco{color:white;}
+.sombra{box-shadow: var(--sombra-caja);}
+
+.w30{width:30%;}
+.w40{width:40%;}
+.w50{width:50%;}
+.w60{width:60%;}
+.w70{width:70%;}
+.w80{width:80%;}
+
+.titulo_Portada{ font-size: 6rem; font-weight: 900; text-align: justify;}
+.subtitulo_Portada{ font-size: 2.2rem; font-weight: 600; text-align: justify; align-items: right;}
+.titulo_Parrafo{ font-size: 1.8rem; font-weight: 600; text-align: justify;}
+.subtitulo_Parrafo{ font-size: 1.4rem; font-weight: 600; text-align: justify; align-items: right;}
+
+
+
+.boton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  width: auto;
+  height: 2rem;
+  
+  font-size: 1rem;
+  font-weight: 600;
+  text-align:center;
+
+  border-radius: 8px;
+  outline-style: none;
+  outline-width: 0;
+  border-style: none;
+  box-shadow: var(--sombra-boton);
+}
+.azul{background-color: var(--azul-secundario); color: white;}
+.azul:hover{background-color: var(--azul-terciario); outline-style: none; outline-width: 0; border-style: none; }
+.azul:focus{background-color: var(--azul-cuarto); outline-style: none; outline-width: 0; border-style: none; }
+
+.rojo{background-color: var(--rojo-secundario); color: white;}
+.rojo:hover{background-color: var(--rojo-terciario); outline-style: none; outline-width: 0; border-style: none; }
+.rojo:focus{background-color: var(--rojo-cuarto); outline-style: none; outline-width: 0; border-style: none; }
+
+.verde{background-color: var(--verde-secundario); color: white;}
+.verde:hover{background-color: var(--verde-terciario); outline-style: none; outline-width: 0; border-style: none; }
+.verde:focus{background-color: var(--verde-cuarto); outline-style: none; outline-width: 0; border-style: none; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
