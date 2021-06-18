@@ -1,56 +1,62 @@
-import React, {useEffect} from 'react';
-import {VentanaModal} from '../VentanaModal/VentanaModal';
+import React, {useEffect, useState} from 'react';
+import {MenuOpcion} from './MenuOpcion/MenuOpcion';
 import './Menu.scss';
 import '../../index.scss';
-import {Stack, VStack, HStack, Button, Text, useColorMode} from "@chakra-ui/react";
+import {Stack, Flex, HStack, Button, Text, useColorMode} from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faSun} from "@fortawesome/free-regular-svg-icons";
-import {faMoon} from "@fortawesome/free-solid-svg-icons";
+import {faMoon, faBars, faUser, faFlask, faProcedures, faDoorOpen, faUserInjured} from "@fortawesome/free-solid-svg-icons";
 import {Link, Route, BrowserRouter} from "react-router-dom";
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {SignIn, SignOut} from '../../Actions/Index';
+
 
 
 
 
 export const Menu:React.FC = () => {
     var IsLoggedIn = false;
-    interface RootState {
-        islogged: boolean
-    }
-
-    
-    IsLoggedIn = useSelector((state: RootState) => {
-        return state.islogged;
-    });
+    interface RootState {islogged: boolean}    
+    IsLoggedIn = useSelector((state: RootState) => {return state.islogged;});
+    const dispatch = useDispatch();
+    const colorIcono = "white";
 
     const { colorMode, toggleColorMode } = useColorMode();
+    const [abrirMenu, setAbrirMenu] =  useState<boolean>(false);
+    const [menuAbierto, setMenuAbierto] = useState<boolean>(false);
+    const mantenerMenuAbierto = () => {
+        //si se exporta esta variable con redux a una global, puede reducirse el tamaño del dashboard cuando el menú esté fijo
+        setMenuAbierto(!menuAbierto)
+    }
+    const onHover = () =>{!menuAbierto && setAbrirMenu(true)}
+    const onMouseOut = () =>{!menuAbierto && setAbrirMenu(false)}
     
 
-    return(
-        <BrowserRouter>
-            <Stack w="100%" pl="2rem" pr="2rem" h="3rem" bg="white" boxShadow="0px 10px 20px -5px  #000000b2" zIndex="-1" direction="row" alignItems="center" justifyContent="space-between">
-                <Stack> 
-                    <Route>
-                        <Link data-testid="linkPrincipal" to={'/'} className="MenuTexto">Dashboard</Link>
-                    </Route>
-                </Stack>
-
-                <HStack  alignItems="center" >
-                    <Route>
-                        <Link data-testid="linkCatalogo"  to={'/Catalogo'}>Catalogo</Link>
-                        {
-                            IsLoggedIn ?
-                            <Link className="boton rojo" data-testid="linkLogIn"  to={'/IniciarSesion'}>Cerrar Sesión</Link>:
-                            <Link className="boton azul" data-testid="linkLogOut" to={'/IniciarSesion'}>Iniciar Sesión</Link>
-                        }
-                    </Route>      
-                    {/* <Button size="sm" fontSize="1rem" colorScheme="blue" variant="ghost" onClick={toggleColorMode}>
-                        {colorMode === "light" ?           
-                        <FontAwesomeIcon color="#000000" icon={faMoon} /> : 
-                        <FontAwesomeIcon color="#ffc811" icon={faSun} />}
-                    </Button> */}
-                </HStack>
-            </Stack>
-        </BrowserRouter>
+    return(                
+        <Flex position="fixed" zIndex="1000" boxShadow="0px 10px 20px -5px  #000000b2" bgColor="#3182CE" 
+            padding="1rem 0.5rem" h="100vh"  w={abrirMenu? "12rem" : "auto"} flexDirection="column" 
+            alignItems="flex-start" justifyContent="space-between" 
+            onMouseEnter={onHover}  onMouseLeave={onMouseOut}>
+            
+            <Flex>   
+                <Button m="0" onClick={mantenerMenuAbierto} w={abrirMenu? "11rem" : "2rem"}><FontAwesomeIcon color="#3182CE" icon={faBars}/> </Button>
+            </Flex>  
+            <Flex flexDirection="column" alignItems="flex-start" justifyContent="space-between">
+                <MenuOpcion fuente="1.5rem" tam= {abrirMenu} url="Catalogo" titulo="Catálogo" color={colorIcono} icono={<FontAwesomeIcon icon={faUser} />}/>
+                <MenuOpcion fuente="1rem" tam= {abrirMenu} url="Pacientes" titulo="Pacientes" color={colorIcono} icono={<FontAwesomeIcon icon={faProcedures}  />}/>
+                <MenuOpcion fuente="1.5rem" tam= {abrirMenu} url="NuevoPaciente" titulo="Nuevo Paciente" color={colorIcono} icono={<FontAwesomeIcon icon={faUserInjured}  />}/>
+            </Flex>                
+            <Flex>
+                {
+                    !IsLoggedIn ?                      
+                    <MenuOpcion fuente="1.5rem" tam= {abrirMenu} url="IniciarSesion" titulo="Iniciar Sesion" color={colorIcono} icono={<FontAwesomeIcon icon={faFlask}  />}/>:                    
+                    <Flex onClick={() => dispatch(SignOut())} w={abrirMenu ? "11rem" : "auto" }  h="auto" flexDirection="row" p="0.5rem" paddingBotton="1rem" borderRadius="0.5rem"
+                    _hover={{background: "#BEE3F8",}} alignItems="center" justifyContent="flexStart">
+                        <Flex fontSize="1.5rem"><FontAwesomeIcon icon={faDoorOpen} color={colorIcono} /></Flex>
+                        <Flex >{abrirMenu && <Text>Cerrar Sesion</Text>}</Flex>
+                    </Flex>
+                }
+            </Flex>
+        </Flex>
     );
 }

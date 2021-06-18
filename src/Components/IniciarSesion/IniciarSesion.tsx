@@ -6,15 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUserCircle, faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons";
 import {useSelector, useDispatch} from 'react-redux';
 import {SignIn, SignOut} from '../../Actions/Index';
+import { createBreakpoints } from "@chakra-ui/theme-tools"
 
 export const IniciarSesion:React.FC = () => {
   const dispatch = useDispatch();
   var IsLoggedIn = false;
 
   interface RootState {islogged: boolean}  
-  IsLoggedIn = useSelector((state: RootState) => {
-      return state.islogged;
-  });
+  IsLoggedIn = useSelector((state: RootState) => {return state.islogged;});
 
   const [mostrar, setMostrar] = useState<boolean>(false)
   function MostrarPassword(){setMostrar(mostrar ? false: true)}
@@ -26,9 +25,9 @@ export const IniciarSesion:React.FC = () => {
 
   if(IsLoggedIn){
     return(
-        <Stack w="100%" h="100vh" textSize="2rem" color="white" fontWeight="600" p="5rem" bgColor="#2C5282" alignItems="center" justifyContent="center" >
+        <Stack w="100%" h="100vh" textSize={{base:"5rem", sm: "5rem", md: "5rem", lg: "2rem", xl: "10rem" }} color="white" fontWeight="600" p="5rem" bgColor="#2C5282" alignItems="center" justifyContent="center" >
             <Text>Ya hay una sesión iniciada. ¿Desea cerrar la sesión actual?</Text>
-            <Stack w="15rem">
+            <Stack w={{ sm: "10rem", md: "15rem", lg: "15rem", xl: "20rem" }}>
               <Link  to={'/'} className="boton rojo">Cerrar Sesión</Link>
             </Stack>
         </Stack>
@@ -36,14 +35,14 @@ export const IniciarSesion:React.FC = () => {
   }
 
   return (
-    <VStack p="3rem" alignItems="center" justifyContent="center" h="100%" w="100%" bgColor="#2C5282">
+    <VStack p={{ base: "0rem", sm: "0.5rem", lg: "2rem", xl: "3rem" }} alignItems="center" justifyContent="center" h="100%" w="100%" bgColor="#2C5282">
 
       <Stack   alignItems="center" justifyContent="center" flexDirection="row" p="0.5rem">
         <FontAwesomeIcon icon={faUserCircle} className="LogIn_icono"/>
         <Text fontWeight="600" fontSize="1.8rem" color ="white">Medical Manager</Text>
       </Stack>  
 
-      <VStack p="2.5rem" boxShadow="dark-lg" bgColor="white" border="1px" borderColor="#3182CE" borderRadius="1rem" h="auto" w="45%" alignItems="center" justifyContent="center" >        
+      <VStack p={{ base: "1rem", sm: "1.5rem", lg: "2.5rem", xl: "3rem" }} boxShadow="dark-lg" bgColor="white" border="1px" borderColor="#3182CE" borderRadius="1rem" h="auto" w={{ base: "100%", sm: "90%", md: "50%", lg: "45%", xl: "35rem" }} alignItems="center" justifyContent="center" >        
         <Stack   alignItems="flex-start" justifyContent="flex-start" paddingBottom="0.5rem" w="100%" >
           <Text fontWeight="600" fontSize="1.3rem" p="0" >Iniciar sesión <br/> 
           <span className="LogIn_SecondaryText">ingrese sus credenciales para accesar a:</span></Text>

@@ -11,13 +11,13 @@ import { Router } from 'react-router';
 
 const Store =createStore(AllReducers,  composeWithDevTools());
 ReactDOM.render(
-  <React.StrictMode>  
-    <Provider store = {Store}>
+  <Provider store = {Store}>
+    <React.StrictMode>  
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
       <ChakraProvider>      
         <App/>
       </ChakraProvider>
-    </Provider>  
-  </React.StrictMode>,
+    </React.StrictMode>
+  </Provider>,  
   document.getElementById('root')
 );
