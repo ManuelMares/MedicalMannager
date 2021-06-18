@@ -100,7 +100,7 @@ export const NuevoPaciente:React.FC = () => {
                     <FormLabel >Seleccione una fecha</FormLabel>
                     <DatePicker selected={fecha} onChange={(date:any) => setFecha(date)} 
                     placeholderText="Click aquí"
-                    maxDate={new Date()} autoFocus />
+                    maxDate={new Date()} />
                 </Stack>
             </FormControl> 
         </Stack>

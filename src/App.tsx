@@ -12,17 +12,17 @@ import {Flex } from "@chakra-ui/react"
 export const App:React.FC = () =>  {
   
   return (  
-    <BrowserRouter> 
-      <Flex class="App_Contenedor">        
-        <Menu/> 
-        <Switch>
-            <Route exact path="/Dashboard" component={Dashboard}  />
-            <Route path="/Catalogo" component={Catalogo}  />
-            <Route path="/IniciarSesion" component={IniciarSesion}  />
-            <Route path="/NuevoPaciente" component={NuevoPaciente}  />
-            <Route path="*" component={NotFoundPage}  />
-        </Switch>  
-      </Flex>
+    <BrowserRouter>       
+    <Menu/> 
+    <Flex marginLeft={{base:"3.2rem", md:"2.2rem"}}>
+      <Switch>
+          <Route exact path="/Dashboard" component={Dashboard}  />
+          <Route path="/Catalogo" component={Catalogo}  />
+          <Route path="/IniciarSesion" component={IniciarSesion}  />
+          <Route path="/NuevoPaciente" component={NuevoPaciente}  />
+          <Route path="*" component={NotFoundPage}  />
+      </Switch>            
+    </Flex>
     </BrowserRouter>
   );
 }
