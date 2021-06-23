@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './App';
+import App from './App';
 import { ChakraProvider, ColorModeScript, theme } from "@chakra-ui/react";
 import {createStore} from 'redux';
 import AllReducers from './Reducers/Index';

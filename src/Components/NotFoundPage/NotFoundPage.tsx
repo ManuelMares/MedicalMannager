@@ -1,9 +1,11 @@
 import React from 'react';
 import {Text, VStack} from "@chakra-ui/react";
 import {useLocation} from "react-router-dom";
+import { withRouter, RouteComponentProps} from "react-router-dom";
+import Ipage from '../../Interfaces/Page';
 
 
-export const NotFoundPage:React.FC = () => {
+const NotFoundPage:React.FC<Ipage & RouteComponentProps<any>> = props => {
     let location = useLocation();
     return (
         <VStack alignItems="center" justifyContent="center" w="100%" h="100%" p="4rem">
@@ -15,3 +17,5 @@ export const NotFoundPage:React.FC = () => {
         </VStack>
     );
 }
+
+export default withRouter(NotFoundPage)

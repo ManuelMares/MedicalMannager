@@ -7,8 +7,10 @@ import {faUserCircle, faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons
 import {useSelector, useDispatch} from 'react-redux';
 import {SignIn, SignOut} from '../../Actions/Index';
 import { createBreakpoints } from "@chakra-ui/theme-tools"
+import { withRouter, RouteComponentProps} from "react-router-dom";
+import Ipage from '../../Interfaces/Page';
 
-export const IniciarSesion:React.FC = () => {
+const IniciarSesion:React.FC<Ipage & RouteComponentProps<any>> = props => {
   const dispatch = useDispatch();
   var IsLoggedIn = false;
 
@@ -81,3 +83,5 @@ export const IniciarSesion:React.FC = () => {
     </VStack>
   );
 }
+
+export default withRouter(IniciarSesion)
