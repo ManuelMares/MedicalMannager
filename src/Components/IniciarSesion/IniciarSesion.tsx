@@ -56,11 +56,11 @@ const IniciarSesion:React.FC<Ipage & RouteComponentProps<any>> = props => {
 
         <FormControl  id="email" paddingBottom="1.8rem" >
           <FormLabel color="#2B6CB0">Correo</FormLabel>
-          <Input value={correo} type="email" marginBottom="1.8rem" placeholder="Ejem: rodrigo@rodriguez.com"/>
+          <Input value={correo} onChange={(e) => {setCorreo(e.target.value)}} type="email" marginBottom="1.8rem" placeholder="Ejem: rodrigo@rodriguez.com"/>
           
           <FormLabel color="#2B6CB0" >Contraseña</FormLabel>
           <InputGroup size="md" marginBottom="0.8rem">
-            <Input value={password} pr="4.5rem" type={mostrar ? "text" : "password"}placeholder="********"/>
+            <Input value={password} onChange={(e) => {setPassword(e.target.value)}} pr="4.5rem" type={mostrar ? "text" : "password"}placeholder="********"/>
             <InputRightElement width="4.5rem">
               <Button h="1.75rem" size="sm" colorScheme="blue" variant="outline" onClick={MostrarPassword}> {mostrar ==true ?                 
                 <FontAwesomeIcon icon={faEyeSlash} /> :                 
