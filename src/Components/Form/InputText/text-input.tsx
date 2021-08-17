@@ -2,13 +2,14 @@ import { Box, Input } from "@chakra-ui/react";
 import { ComponentProps, FC } from "react";
 
 export type BoxType = ComponentProps<typeof Box>;
-export type LabelType = ComponentProps<typeof Input>;
+export type InputType = ComponentProps<typeof Input>;
 type Props = {
   key?: string;
   name: string;
   placeholder: string;
   label?: any;
-  rest?: LabelType;
+  rest?: InputType;
+  wrapperParams?: BoxType;
 };
 
 const TextInput: FC<Props> = ({
@@ -17,9 +18,10 @@ const TextInput: FC<Props> = ({
   placeholder,
   label,
   rest,
+  wrapperParams,
 }) => {
   return (
-    <Box mx="2em">
+    <Box mx="2em" {...wrapperParams}>
       {label}
       <Input
         {...key}
