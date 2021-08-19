@@ -10,7 +10,7 @@ type Props = {
   childComp?: React.ReactNode;
 };
 
-const Contenedor: FC<Props> = ({ wrapperParams, childComp }) => {
+const Container: FC<Props> = ({ wrapperParams, childComp }) => {
   return (
     <Box>
       <Stack
@@ -22,10 +22,12 @@ const Contenedor: FC<Props> = ({ wrapperParams, childComp }) => {
         width="auto"
         {...wrapperParams}
       >
-        {childComp}
+        {childComp.map(function (d, idx) {
+          return { d };
+        })}
       </Stack>
     </Box>
   );
 };
 
-export default Contenedor;
+export default Container;
