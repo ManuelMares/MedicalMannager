@@ -2216,6 +2216,24 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@skidding/launch-editor@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@skidding/launch-editor/-/launch-editor-2.2.3.tgz#553d3bcf3ce468bd0ee46cb081276342e120d2b3"
+  integrity sha512-0SuGEsWdulnbryUJ6humogFuuDMWMb4VJyhOc3FGVkibxVdECYDDkGx8VjS/NePZSegNONDIVhCEVZLTv4ycTQ==
+  dependencies:
+    chalk "^2.3.0"
+    shell-quote "^1.6.1"
+
+"@skidding/webpack-hot-middleware@^2.25.0":
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/@skidding/webpack-hot-middleware/-/webpack-hot-middleware-2.25.0.tgz#da8b5d3eb36cce6cc02ad4331655a62967ac9342"
+  integrity sha512-iLyReNFoov9k6nYR1u8g22BFcodkXGPlCZXA1l5Gf7HaToPi6GH8oFJLkyVGyaaLNSPx7kia3jf8SMpShE2rCA==
+  dependencies:
+    ansi-html "0.0.7"
+    html-entities "^1.2.0"
+    querystring "^0.2.0"
+    strip-ansi "^3.0.0"
+
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.2"
   resolved "https://registry.npmjs.org/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-1.4.2.tgz"
