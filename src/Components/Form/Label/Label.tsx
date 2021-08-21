@@ -1,4 +1,4 @@
-import { ComponentProps, FC } from "react";
+import React, { ComponentProps, FC } from "react";
 import { Text } from "@chakra-ui/react";
 
 export type TextType = ComponentProps<typeof Text>;

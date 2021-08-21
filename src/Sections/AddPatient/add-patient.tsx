@@ -1,5 +1,5 @@
-import TextInput from "../../Components/Form/InputText/text-input";
-import Label from "../../Components/Form/Label/label";
+import TextInput from "../../Components/Form/TextInput";
+import Label from "../../Components/Form/Label/Label";
 
 const AddPatient = () => {
   const props = {
