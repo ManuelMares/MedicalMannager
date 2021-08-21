@@ -17,4 +17,4 @@ const Wrapper = (props: Props) => {
   );
 };
 
-export default ({ children }) => <Wrapper>{children}</Wrapper>;
+export default Wrapper;
