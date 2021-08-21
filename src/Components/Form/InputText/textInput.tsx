@@ -1,3 +1,4 @@
+import React from "react";
 import { Box, Input } from "@chakra-ui/react";
 import { ComponentProps, FC } from "react";
 
@@ -24,14 +25,14 @@ const TextInput: FC<Props> = ({
     <Box mx="2em" {...wrapperParams}>
       {label}
       <Input
-        {...key}
-        {...name}
         data-test-id="text-input"
         color="black"
         borderRadius="0.2em"
-        {...placeholder}
-        {...rest}
         onChange={() => {}}
+        key={key}
+        name={name}
+        placeholder={placeholder}
+        {...rest}
       />
     </Box>
   );

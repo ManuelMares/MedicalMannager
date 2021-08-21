@@ -1,4 +1,4 @@
-import TextInput from "../../Components/Form/InputText/text-input";
+import TextInput from "../../Components/Form/InputText";
 import Label from "../../Components/Form/Label/label";
 
 const AddPatient = () => {
