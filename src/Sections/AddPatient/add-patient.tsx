@@ -1,6 +1,6 @@
 import TextInput from "../../Components/Form/InputText/text-input";
 import Label from "../../Components/Form/Label/label";
-import Container from "../../Components/Form/Container/ContainerForminerForm";
+import ContainerForm from "../../Components/Form/ContainerForm/ContainerForm";
 import NewPacient from "../../Components/Form/FormTemplates/NewPacient";
 
 import { Stack } from "@chakra-ui/react";
@@ -19,7 +19,7 @@ const AddPatient = () => {
 
   return (
     <Stack w="100%" alignItems="center" justifyContent="center">
-      <ContainerForm> <NewPacient/> </ContainerForm>
+      <ContainerForm> <NewPacient /></ContainerForm>
     </Stack>
   );
 };
