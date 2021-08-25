@@ -1,7 +1,6 @@
 import { ReactElement } from "react";
-import TextInput from "../InputText/text-input";
-import Label from "../Label/label";
-
+import Label from "../Label";
+import TextInput from "../TextInput";
 const NewPacient = () => {
   const nombre = {
     name: "inputNombre",
