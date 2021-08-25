@@ -1,22 +1,11 @@
 import { Box, Stack } from "@chakra-ui/react";
-import { ComponentProps, FC, useEffect } from "react";
+import { ComponentProps, FC } from "react";
 
 export type StackType = ComponentProps<typeof Stack>;
 type Props = {
-  Form?: React.FC[];
+  Form: React.ReactNode[];
 };
-
-const arregloDefault: React.ReactNode[] = [
-  <div>Hola</div>,
-  <div>Cómo</div>,
-  <div>Estás</div>,
-];
-
 const ContainerForm: FC<Props> = ({ Form }) => {
-  useEffect(() => {
-    console.log({ Form});
-  });
-
   return (
     <Box>
       <Stack
@@ -27,7 +16,7 @@ const ContainerForm: FC<Props> = ({ Form }) => {
         boxShadow="md"
         width="auto"
       >
-        {Form.map((objeto: React.ReactNode) => objeto)}
+        {Form}
       </Stack>
     </Box>
   );

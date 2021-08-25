@@ -16,10 +16,11 @@ const AddPatient = () => {
     placeholder: "Fecha de nacimiento",
     label: <Label value="6/09/1996" />,
   };
+  const children = [<NewPacient />];
 
   return (
     <Stack w="100%" alignItems="center" justifyContent="center">
-      <ContainerForm> <NewPacient /></ContainerForm>
+      <ContainerForm Form={children} />
     </Stack>
   );
 };
