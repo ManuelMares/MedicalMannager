@@ -9,7 +9,14 @@ type Props = {
 const Label: FC<Props> = (props) => {
   const { value, ...rest } = props;
   return (
-    <Text color="black" fontWeight="500" fontSize="1.1em" mb="2" {...rest}>
+    <Text
+      data-testid="label"
+      color="black"
+      fontWeight="500"
+      fontSize="1.1em"
+      mb="2"
+      {...rest}
+    >
       {value}
     </Text>
   );
