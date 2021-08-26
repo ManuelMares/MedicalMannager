@@ -1,4 +1,6 @@
+import { Box } from "@chakra-ui/react";
 import { ReactElement } from "react";
+import ContainerForm from "../ContainerForm";
 import TextInput from "../InputText/text-input";
 import Label from "../Label/label";
 
@@ -8,6 +10,7 @@ const NewPacient = () => {
     placeholder: "Nombre completo",
     label: <Label value="José Emilio pacheco" />,
   };
+  
   const fechaNacimiento = {
     name: "inputFechaNacimiento",
     placeholder: "Fecha de nacimiento",
@@ -16,7 +19,14 @@ const NewPacient = () => {
 
   const Forma = [<TextInput {...nombre} />, <TextInput {...fechaNacimiento} />];
 
-  return <>Forma</>;
+  
+
+  return (
+    <Box>
+      <ContainerForm Form={Forma}> </ContainerForm>
+    </Box>
+  );
+
 };
 
 export default NewPacient;

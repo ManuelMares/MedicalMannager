@@ -3,20 +3,10 @@ import { ComponentProps, FC, useEffect } from "react";
 
 export type StackType = ComponentProps<typeof Stack>;
 type Props = {
-  Form?: React.FC[];
-};
+  Form: React.ReactNode;
+} & StackType;
 
-const arregloDefault: React.ReactNode[] = [
-  <div>Hola</div>,
-  <div>Cómo</div>,
-  <div>Estás</div>,
-];
-
-const ContainerForm: FC<Props> = ({ Form }) => {
-  useEffect(() => {
-    console.log({ Form});
-  });
-
+const ContainerForm: FC<Props> = ({ Form, ...rest }) => {
   return (
     <Box>
       <Stack
@@ -26,8 +16,9 @@ const ContainerForm: FC<Props> = ({ Form }) => {
         p="1rem"
         boxShadow="md"
         width="auto"
+        {...rest}
       >
-        {Form.map((objeto: React.ReactNode) => objeto)}
+        {Form}
       </Stack>
     </Box>
   );
