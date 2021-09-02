@@ -23,7 +23,7 @@ const NewPacient = () => {
 
   return (
     <Box>
-      <ContainerForm Form={Forma}> </ContainerForm>
+      <ContainerForm Form={Forma} />
     </Box>
   );
 
