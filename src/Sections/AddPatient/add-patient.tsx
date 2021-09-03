@@ -1,5 +1,3 @@
-import TextInput from "../../Components/Form/InputText/text-input";
-import Label from "../../Components/Form/Label/label";
 import ContainerForm from "../../Components/Form/ContainerForm/ContainerForm";
 import NewPacient from "../../Components/Form/FormTemplates/NewPacient";
 
@@ -10,7 +8,7 @@ const AddPatient = () => {
 
   return (
     <Box>
-      <ContainerForm Form={children}> </ContainerForm>
+      <ContainerForm Form={children} />
     </Box>
   );
 };
