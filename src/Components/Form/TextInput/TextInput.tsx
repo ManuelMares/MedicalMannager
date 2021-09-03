@@ -22,10 +22,10 @@ const TextInput: FC<Props> = ({
   wrapperParams,
 }) => {
   return (
-    <Box mx="2em" {...wrapperParams}>
+    <Box data-testid="text-input-wrapper" mx="2em" {...wrapperParams}>
       {label}
       <Input
-        data-test-id="text-input"
+        data-testid="text-input"
         color="black"
         borderRadius="0.2em"
         onChange={() => {}}
