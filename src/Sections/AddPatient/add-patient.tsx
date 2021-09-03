@@ -1,14 +1,16 @@
-import TextInput from "../../Components/Form/TextInput";
-import Label from "../../Components/Form/Label/Label";
+import ContainerForm from "../../Components/Form/ContainerForm/ContainerForm";
+import NewPacient from "../../Components/Form/FormTemplates/NewPacient";
+
+import { Box } from "@chakra-ui/react";
 
 const AddPatient = () => {
-  const props = {
-    name: "textInput",
-    placeholder: "Pon algo",
-    label: <Label value="Prueba" />,
-  };
+  const children = <NewPacient />;
 
-  return <TextInput {...props} />;
+  return (
+    <Box>
+      <ContainerForm Form={children} />
+    </Box>
+  );
 };
 
 export default AddPatient;
