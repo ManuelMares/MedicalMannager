@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Input } from "@chakra-ui/react";
+import { Box, Input, Stack } from "@chakra-ui/react";
 import { ComponentProps, FC } from "react";
 
 export type BoxType = ComponentProps<typeof Box>;
@@ -22,20 +22,26 @@ const TextInput: FC<Props> = ({
   wrapperParams,
 }) => {
   return (
-    <Box data-testid="text-input-wrapper" mx="2em" {...wrapperParams}>
+    <Stack data-testid="text-input-wrapper" {...wrapperParams}
+    margin="0.5rem"
+    p="1rem"
+    >
       {label}
       <Input
         data-testid="text-input"
         color="black"
         borderRadius="0.2em"
+        w="25rem"
         onChange={() => {}}
         key={key}
         name={name}
         placeholder={placeholder}
         {...rest}
+        backgroundColor ="white"
       />
-    </Box>
+    </Stack>
   );
 };
 
 export default TextInput;
+
