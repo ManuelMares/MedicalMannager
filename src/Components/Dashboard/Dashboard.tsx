@@ -1,13 +1,13 @@
 import React from "react";
 import { Box, Text, VStack } from "@chakra-ui/react";
-import AddPatient from "../../Sections/AddPatient/add-patient";
+import NewPacient from "../Form/FormTemplates/NewPacient";
 
 export const Dashboard: React.FC = () => {
   return (
     <VStack>
       <Text data-testid="DashboardTitulo">Hola. Este es el dashboard</Text>
       <Box w="100%">
-        <AddPatient />
+        <NewPacient/>
       </Box>
     </VStack>
   );
