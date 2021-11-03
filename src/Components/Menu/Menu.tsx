@@ -27,23 +27,19 @@ export const Menu:React.FC = () => {
     
 
     return(
-        <BrowserRouter>
+        <>
             <Stack w="100%" pl="2rem" pr="2rem" h="3rem" bg="white" boxShadow="0px 10px 20px -5px  #000000b2" zIndex="-1" direction="row" alignItems="center" justifyContent="space-between">
                 <Stack> 
-                    <Route>
                         <Link data-testid="linkPrincipal" to={'/'} className="MenuTexto">Dashboard</Link>
-                    </Route>
                 </Stack>
 
                 <HStack  alignItems="center" >
-                    <Route>
                         <Link data-testid="linkCatalogo"  to={'/Catalogo'}>Catalogo</Link>
                         {
                             IsLoggedIn ?
                             <Link className="boton rojo" data-testid="linkLogIn"  to={'/IniciarSesion'}>Cerrar Sesión</Link>:
                             <Link className="boton azul" data-testid="linkLogOut" to={'/IniciarSesion'}>Iniciar Sesión</Link>
-                        }
-                    </Route>      
+                        }     
                     {/* <Button size="sm" fontSize="1rem" colorScheme="blue" variant="ghost" onClick={toggleColorMode}>
                         {colorMode === "light" ?           
                         <FontAwesomeIcon color="#000000" icon={faMoon} /> : 
@@ -51,6 +47,6 @@ export const Menu:React.FC = () => {
                     </Button> */}
                 </HStack>
             </Stack>
-        </BrowserRouter>
+        </>
     );
 }
