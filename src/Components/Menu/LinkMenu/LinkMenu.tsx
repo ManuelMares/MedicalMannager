@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {Stack, VStack, HStack, Button, Text, useColorMode, Icon} from "@chakra-ui/react"
 import {useSelector} from 'react-redux'
 import './LinkMenu.scss';
@@ -19,45 +19,35 @@ type Props = {
 
 
 export const LinkMenu: React.FC<Props> = ({ Width, Icon, Vinculo, Name, FontSize, Color})=> {
+    //TODO: use location to indicate which url you are on
     const url = '/' + Vinculo
     let location = useLocation();    
     const [bgActive, setBgACtive] = useState<string>("white")
 
-    const DefineWidthMenu = () => {
-        if (Width=='auto'){
-            return (
-                <Stack w={Width} p="0.5rem !important" alignItems="start" justifyContent="flex-start" flexDir='row'
-                fontSize={FontSize} backgroundColor={bgActive}>
-                    {Icon} 
-                </Stack>)
-            
-        }else{
-            return (
-                <Stack w={Width} padding="0.5rem !important" alignItems="center" justifyContent="flex-start" flexDir='row'
-                fontSize={FontSize} backgroundColor={bgActive}  _hover={{background: "#BDE2F3"}} >
-                    {Icon} 
-                    <Text fontSize={FontSize} lineHeight="0 !important" m="0 !important" pl="1rem" color={Color} fontWeight="700">
-                        {Name}
-                    </Text> 
-                </Stack>)
-        }        
+    const isWidthAuto = Width !== 'auto';
+    const itemAlignment = isWidthAuto ? 'center' : 'start'
+    const itemBackground = isWidthAuto ? "#BDE2F3" : ''
+
+
+    const ButtonText: FC = () =>{
+        return(
+        <>            
+            {isWidthAuto && 
+            <Text lineHeight="0 !important" m="0 !important" pl="1rem" color={Color} fontWeight="700">
+                {Name}
+            </Text>}
+        </>)
     }
-    
-    useEffect(() => {
-        DefineWidthMenu()
-        if(location.pathname.toString() == url){
-            setBgACtive("#5C93CB")
-        }else{
-            setBgACtive("white")
-        }
-    })
+
 
     return(
         <>
-            <Link data-testid="linkPrincipal" to={url}> 
-                {
-                    DefineWidthMenu()                  
-                }
+            <Link data-testid="linkPrincipal" to={url}>    
+             <Stack w={Width} p="0.5rem !important" justifyContent="flex-start" flexDir='row'
+                fontSize={FontSize} backgroundColor={bgActive}  alignItems={itemAlignment}  _hover={{background: itemBackground}}>
+                    {Icon}
+                    <ButtonText/>                   
+                </Stack>
             </Link>
         </>
     );
